@@ -77,9 +77,9 @@ def pass_change(request):
 def add_pro_pic(request):
     form = ProfilePic()
     if request.method == 'POST':
-        form =  ProfilePic(request.POST, request.FILES)
+        form = ProfilePic(request.POST, request.FILES)
         if form.is_valid():
-            user_obj = form.save(commit = False)
+            user_obj = form.save(commit=False)
             user_obj.user = request.user
             user_obj.save()
             return HttpResponseRedirect(reverse('App_Login:profile'))
